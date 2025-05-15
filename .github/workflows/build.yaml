@@ -22,4 +22,9 @@ jobs:
         run: yarn
       - name: Build prisma executable
         run: yarn build
-
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            dist/prisma*
