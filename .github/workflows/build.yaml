@@ -13,9 +13,9 @@ jobs:
         os: [ "ubuntu-latest", "windows-latest", "macos-latest" ]
     runs-on: [ "${{ matrix.os }}" ]
     steps:
-      - name: Add PATH
-        if: ${{ matrix.os == 'Windows' }}
-        run: echo "C:\\actions-runner\\node" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Check out repository code
         uses: actions/checkout@v4
       - name: Install dependencies
